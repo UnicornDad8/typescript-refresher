@@ -14,12 +14,11 @@ function greeting(message: string): void {
 
 greeting("Hello fren");
 
+// type Alias
+type Calc = (income: number, percentage: number) => number;
+
 // defining function types
-function calculateTax(
-  income: number,
-  percentage: number,
-  calc: (income: number, percentage: number) => number
-) {
+function calculateTax(income: number, percentage: number, calc: Calc) {
   return calc(income, percentage);
 }
 
