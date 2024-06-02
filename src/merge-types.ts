@@ -31,3 +31,11 @@ let admin2: MergedAdmin2 = {
   permissions: ["login"],
   username: "UnicornDad",
 };
+
+// Literal types
+let role: "admin" | "user" | "editor";
+
+role = "admin";
+role = "user";
+role = "editor";
+// role = "abc";
