@@ -1,11 +1,11 @@
-import { type FC, type ReactNode } from "react";
+import { type ReactNode } from "react";
 
 interface CourseGoalProps {
   title: string;
   children: ReactNode;
 }
 
-const CourseGoal: FC<CourseGoalProps> = ({ title, children }) => {
+const CourseGoalItem = ({ title, children }: CourseGoalProps) => {
   return (
     <article>
       <div>
@@ -17,4 +17,4 @@ const CourseGoal: FC<CourseGoalProps> = ({ title, children }) => {
   );
 };
 
-export default CourseGoal;
+export default CourseGoalItem;

@@ -1,11 +1,11 @@
-import { type FC, type ReactNode } from "react";
+import { type ReactNode } from "react";
 
 interface HeaderProps {
   image: { src: string; alt: string };
   children: ReactNode;
 }
 
-const Header: FC<HeaderProps> = ({ image, children }) => {
+const Header = ({ image, children }: HeaderProps) => {
   return (
     <header>
       <img {...image} />
