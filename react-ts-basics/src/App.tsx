@@ -25,13 +25,17 @@ export default function App() {
     });
   };
 
+  const handleDeleteGoal = (id: number) => {
+    setGoals((prevGoals) => prevGoals.filter((goal) => goal.id !== id));
+  };
+
   return (
     <main>
       <Header image={{ src: goalsImg, alt: "A list of goals" }}>
         <h1>Your course goals</h1>
       </Header>
       <button onClick={handleAddGoal}>Add Goal</button>
-      <CourseGoalList goals={goals} />
+      <CourseGoalList goals={goals} onDeleteCourseGoal={handleDeleteGoal} />
     </main>
   );
 }
