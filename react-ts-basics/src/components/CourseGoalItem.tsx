@@ -4,22 +4,17 @@ interface CourseGoalProps {
   id: number;
   title: string;
   children: ReactNode;
-  onDeleteCourseGoal: (id: number) => void;
+  onDelete: (id: number) => void;
 }
 
-const CourseGoalItem = ({
-  id,
-  title,
-  children,
-  onDeleteCourseGoal,
-}: CourseGoalProps) => {
+const CourseGoalItem = ({ id, title, children, onDelete }: CourseGoalProps) => {
   return (
     <article>
       <div>
         <h2>{title}</h2>
         {children}
       </div>
-      <button onClick={() => onDeleteCourseGoal(id)}>Delete</button>
+      <button onClick={() => onDelete(id)}>Delete</button>
     </article>
   );
 };

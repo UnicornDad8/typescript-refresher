@@ -4,19 +4,15 @@ import { type CourseGoal } from "../App.tsx";
 
 type CourseGoalListProps = {
   goals: CourseGoal[];
-  onDeleteCourseGoal: (id: number) => void;
+  onDelete: (id: number) => void;
 };
 
-const CourseGoalList = ({ goals, onDeleteCourseGoal }: CourseGoalListProps) => {
+const CourseGoalList = ({ goals, onDelete }: CourseGoalListProps) => {
   return (
     <ul>
       {goals.map((goal) => (
         <li key={goal.id}>
-          <CourseGoalItem
-            id={goal.id}
-            title={goal.title}
-            onDeleteCourseGoal={onDeleteCourseGoal}
-          >
+          <CourseGoalItem id={goal.id} title={goal.title} onDelete={onDelete}>
             <p>{goal.description}</p>
           </CourseGoalItem>
         </li>
