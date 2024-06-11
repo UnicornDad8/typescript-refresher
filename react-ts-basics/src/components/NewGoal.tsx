@@ -1,6 +1,10 @@
 import React, { useRef, type FormEvent } from "react";
 
-const NewGoal = () => {
+type NewGoalProps = {
+  onAdd: (title: string, summary: string) => void;
+};
+
+const NewGoal = ({ onAdd }: NewGoalProps) => {
   const goalRef = useRef<HTMLInputElement>(null);
   const summaryRef = useRef<HTMLInputElement>(null);
 
@@ -10,7 +14,8 @@ const NewGoal = () => {
     const enteredGoal = goalRef.current!.value;
     const enteredSummary = summaryRef.current!.value;
 
-    console.log(enteredGoal, enteredSummary);
+    event.currentTarget.reset();
+    onAdd(enteredGoal, enteredSummary);
   };
 
   return (
@@ -23,7 +28,9 @@ const NewGoal = () => {
         <label htmlFor="summary">Short Summary: </label>
         <input id="summary" type="text" ref={summaryRef} />
       </p>
-      <button type="submit">Add Goal</button>
+      <p>
+        <button type="submit">Add Goal</button>
+      </p>
     </form>
   );
 };

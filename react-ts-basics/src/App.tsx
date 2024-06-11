@@ -8,19 +8,18 @@ import goalsImg from "./assets/goals.jpg";
 export type CourseGoal = {
   id: number;
   title: string;
-  description: string;
+  summary: string;
 };
 
 export default function App() {
   const [goals, setGoals] = useState<CourseGoal[]>([]);
 
-  const handleAddGoal = () => {
+  const handleAddGoal = (title: string, summary: string) => {
     setGoals((prevGoals) => {
       const newGoal: CourseGoal = {
         id: Math.random(),
-        title: "Learn modern front-end frameworks",
-        description:
-          "In this course we will learn many front-end technologies, like React, TypeScript and Redux, also we will build many projects",
+        title,
+        summary,
       };
       return [...prevGoals, newGoal];
     });
@@ -35,7 +34,7 @@ export default function App() {
       <Header image={{ src: goalsImg, alt: "A list of goals" }}>
         <h1>Your course goals</h1>
       </Header>
-      <NewGoal />
+      <NewGoal onAdd={handleAddGoal} />
       <CourseGoalList goals={goals} onDelete={handleDeleteGoal} />
     </main>
   );

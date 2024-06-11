@@ -13,7 +13,7 @@ const CourseGoalList = ({ goals, onDelete }: CourseGoalListProps) => {
       {goals.map((goal) => (
         <li key={goal.id}>
           <CourseGoalItem id={goal.id} title={goal.title} onDelete={onDelete}>
-            <p>{goal.description}</p>
+            <p>{goal.summary}</p>
           </CourseGoalItem>
         </li>
       ))}
